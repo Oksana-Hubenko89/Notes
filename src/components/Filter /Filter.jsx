@@ -2,12 +2,14 @@ import React from 'react';
 import Container from "../Container";
 import { connect } from "react-redux";
 import todosActions from '../redux/todos/todos-actions'
+import s from "../TodoForm/TodoForm.module.css";
+import q from '../TodoList/TodoList.module.css';
 
 const Filter = ({ value, onChange }) => 
 <Container>
-    <label>
-        Find notes  <br/>
-        <input value={value} type="text" onChange={onChange} />
+    <label className={q.note}>
+        Найти  <br/>
+        <input className={s.Input} value={value} type="text" onChange={onChange} />
     </label>
 </Container>;
 

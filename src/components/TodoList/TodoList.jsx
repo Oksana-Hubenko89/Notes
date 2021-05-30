@@ -1,38 +1,32 @@
 import React from 'react';
 import s from "./TodoList.module.css";
-import b from '../Button/Button.module.css';
 import Container from "../Container";
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import todosActions from '../redux/todos/todos-actions'
-
-
-//import Button from '../Button';
+import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 
 const TodoList = ({todos, onDelete}) =>(
-
     
     <Container>
-   
-                  <TransitionGroup component="ul" className={s.List} >
-              
-            {todos.map(({ id, todo,completed, onToggleCompleted }) =>
-                <CSSTransition key={id} classNames={s} timeout={250}>
-                <li className={s.contact} key={id} >
-                  <input type="checkbox"
-                    className="TodoList_checkbox"
-                    checked={completed}
-                    onChange={onToggleCompleted}
-                    />
-                  <span>{todo} </span>
-                  <button className={b.Button} type="button" onClick={() => onDelete(id)} >Delete</button>
-                </li>
-                 </CSSTransition>
-            )}           
-           
-            </TransitionGroup>
-          
-             
+    <TransitionGroup component="ul" className={s.note} >
+    
+  {todos.map(({ id, todo}) =>
+      <CSSTransition key={id} classNames={s} timeout={250}>
+      <li className={s.List} key={id} >
+        <InputGroup>
+          <InputGroupAddon addonType="prepend"  >
+          <InputGroupText >
+            <Input addon color='info' type="checkbox" aria-label="Checkbox delete note" onClick={() => onDelete(id)} />
+           </InputGroupText>
+          </InputGroupAddon>
+           <Input className={s.note} placeholder= {todo}/>
+        </InputGroup>
+      </li>
+       </CSSTransition>
+      )}
+      
+  </TransitionGroup>
   </Container>);
 
     

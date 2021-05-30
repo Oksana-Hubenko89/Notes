@@ -1,15 +1,13 @@
-
 import React, { Component } from 'react';
 import Container from "../Container";
-//import 'react-native-get-random-values';
-//import Button from "../Button";
-import b from "../Button/Button.module.css";
+import b from "../Style/Button.module.css";
 import s from "./TodoForm.module.css";
 import { connect } from "react-redux";
 import todosActions from '../redux/todos/todos-actions';
 import q from '../TodoList/TodoList.module.css';
 import Message from '../Message';
 import PropTypes from 'prop-types';
+
 
 class TodoForm extends Component {
     
@@ -35,7 +33,6 @@ errorMessage=(event)=>{
 }
 
     handleInputChange = event => {
-       // const {todo, value}= event.currentTarget;
         this.setState({ todo: event.currentTarget.value });
     };
     
@@ -61,27 +58,20 @@ errorMessage=(event)=>{
         })
     };
     
-    
     render(){ 
-    
         const { todo, message } = this.state;
-
         return (
             
         <Container>
-          
           <Message message={message}/>
-        
             <form className={s.Form} onSubmit={this.handleSubmit}>
-                <label className={q.contact}>
-                  Новая заметка <br/> <input className={s.Input} type="text"  value={todo} name="todo" placeholder='купить слона' onChange={this.handleInputChange }/>
+                <label className={q.note}>
+                        Новая заметка 
+                         
+      <input className={s.Input} type="text"  value={todo} name="todo" placeholder='купить слона' onChange={this.handleInputChange }/>
                 </label>
-                
-                {/* <Button type="submit" >Add contact</Button> */}
-                <button className={b.Button} type='submit'>Добавьте заметку</button>
-       
+                <button className={b.primary} type='submit'>Добавить</button>
             </form>
-            
        </Container>
         )
     }      

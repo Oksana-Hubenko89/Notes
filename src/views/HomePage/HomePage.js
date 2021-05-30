@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
 import PageHeading from '../../components/PageHeading';
 import TodoList from '../../components/TodoList';
-import s from '../../components/TodoList/TodoList.module.css';
-import TodoForm from '../../components/TodoForm';
-import {CSSTransition} from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import stylesHomePage from "./HomePage.module.css";
 import Filter from '../../components/Filter ';
 import StyleFilter from '../../components/Filter /Filter.module.css';
 import { connect } from "react-redux";
+import container from '../../components/Container/Container.module.css'
+import TodoForm from '../../components/TodoForm';
+import s from "../../components/TodoForm/TodoForm.module.css";
 
 class HomePage extends Component {
 
@@ -22,7 +23,6 @@ class HomePage extends Component {
     message:'',
   };
 
-
    handleSubmit = () => {
          this.setState({error:true})
     };
@@ -32,23 +32,22 @@ class HomePage extends Component {
   
   render() {
          //const filterResult = this.getchangeFilter();
-         const { message, error} = this.state;
+         const { message } = this.state;
      
     return (
           <div >
-
-        
           <CSSTransition classNames={stylesHomePage}  in={true} appear  timeout={500} unmountOnExit>
           <PageHeading text="Notes" />
-          </CSSTransition>
+        </CSSTransition>
+         <div className={container.container_center}>
           <TodoForm onSubmitTodo={()=>{this.handleSubmit(message)}} onResetError={()=>{this.resetError()}}/>
-          <h2 className={s.contact}>Заметки</h2>
+          <h5 className={s.note}>Заметки</h5> 
           <CSSTransition classNames={StyleFilter} in={this.props.todos.length >1}
             timeout={250} unmountOnExit > 
           <Filter /> 
           </CSSTransition> 
           <TodoList /> 
-
+        </div>
           </div>  
     ) 
   }
