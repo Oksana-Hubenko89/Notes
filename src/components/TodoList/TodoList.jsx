@@ -12,12 +12,12 @@ const TodoList = ({todos, onDelete}) =>(
     <TransitionGroup component="ul" className={s.note} >
     
   {todos.map(({ id, todo}) =>
-      <CSSTransition key={id} classNames={s} timeout={250}>
+      <CSSTransition key={id} classNames={s.List} timeout={250}>
       <li className={s.List} key={id} >
         <InputGroup>
           <InputGroupAddon addonType="prepend"  >
           <InputGroupText >
-            <Input addon color='info' type="checkbox" aria-label="Checkbox delete note" onClick={() => onDelete(id)} />
+            <Input addon type="checkbox" aria-label="Checkbox delete note" onClick={() => onDelete(id)} />
            </InputGroupText>
           </InputGroupAddon>
            <Input className={s.note} placeholder= {todo}/>

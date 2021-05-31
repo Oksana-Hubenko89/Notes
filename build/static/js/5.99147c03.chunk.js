@@ -1,0 +1,2 @@
+(this.webpackJsonpNotes=this.webpackJsonpNotes||[]).push([[5],{131:function(t,n,e){"use strict";e.r(n),e.d(n,"default",(function(){return c}));var s=e(9);function c(){return Object(s.jsx)("h1",{children:"404 \u0421\u0442\u0440\u0430\u043d\u0438\u0446\u0430 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430 :("})}}}]);
+//# sourceMappingURL=5.99147c03.chunk.js.map
