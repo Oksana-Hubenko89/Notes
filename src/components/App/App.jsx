@@ -1,6 +1,6 @@
-import { lazy, Suspense } from 'react';
-import './App.css';
 import React from 'react';
+import { lazy, Suspense } from 'react';
+import './App.module.css';
 import { Switch, Route} from 'react-router-dom';
 import Container from '../Container';
 
@@ -9,7 +9,6 @@ const HomePage = lazy(() =>
 );
 const NotFoundView = lazy(() =>
   import('../../views/NotFoundView'));
-
 
 const App = () => (
   <div>
