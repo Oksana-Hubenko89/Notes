@@ -7,7 +7,7 @@ import todosActions from '../redux/todos/todos-actions';
 import q from '../TodoList/TodoList.module.css';
 import Message from '../Message';
 import PropTypes from 'prop-types';
-
+import {Input,InputGroup, InputGroupAddon,Button} from 'reactstrap';
 
 class TodoForm extends Component {
     
@@ -23,7 +23,6 @@ class TodoForm extends Component {
         todo:'',
         message:null,
     }
-   
 
 errorMessage=(event)=>{
     this.setState({message:event});
@@ -64,14 +63,14 @@ errorMessage=(event)=>{
             
         <Container>
           <Message message={message}/>
-            <form className={s.Form} onSubmit={this.handleSubmit}>
-                <label className={q.note}>
-                        Новая заметка 
-                         
-      <input className={s.Input} type="text"  value={todo} name="todo" placeholder='купить слона' onChange={this.handleInputChange }/>
-                </label>
-                <button className={b.primary} type='submit'>Добавить</button>
-            </form>
+             <form className={s.Form} onSubmit={this.handleSubmit}> 
+                <InputGroup className={s.Form} onSubmit={this.handleSubmit}>
+                <Input className={s.Input} value={todo} name="todo" placeholder='Новая заметка' onChange={this.handleInputChange}/>
+                <InputGroupAddon addonType="append">
+                <Button className={b.primary} type='submit' >Добавить</Button>
+                </InputGroupAddon>
+                </InputGroup>
+             </form>
        </Container>
         )
     }      

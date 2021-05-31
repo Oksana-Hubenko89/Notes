@@ -3,14 +3,11 @@ import Container from "../Container";
 import { connect } from "react-redux";
 import todosActions from '../redux/todos/todos-actions'
 import s from "../TodoForm/TodoForm.module.css";
-import q from '../TodoList/TodoList.module.css';
+import { Input } from 'reactstrap';
 
 const Filter = ({ value, onChange }) => 
 <Container>
-    <label className={q.note}>
-        Найти  <br/>
-        <input className={s.Input} value={value} type="text" onChange={onChange} />
-    </label>
+            <Input className={s.Input} value={value} type="text" onChange={onChange} placeholder='Найти' />
 </Container>;
 
 const mapStateToProps = state => ({

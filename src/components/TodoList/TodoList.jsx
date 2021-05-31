@@ -1,5 +1,6 @@
 import React from 'react';
 import s from "./TodoList.module.css";
+import i from "../TodoForm/TodoForm.module.css"
 import Container from "../Container";
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
@@ -12,17 +13,17 @@ const TodoList = ({todos, onDelete}) =>(
     <TransitionGroup component="ul" className={s.note} >
     
   {todos.map(({ id, todo}) =>
-      <CSSTransition key={id} classNames={s.List} timeout={250}>
-      <li className={s.List} key={id} >
-        <InputGroup>
+      <CSSTransition key={id} classNames={s} timeout={250}>
+      {/* <li className={s.List} key={id} > */}
+        <InputGroup   key={id}>
           <InputGroupAddon addonType="prepend"  >
-          <InputGroupText >
-            <Input addon type="checkbox" aria-label="Checkbox delete note" onClick={() => onDelete(id)} />
+          <InputGroupText  className={i.Input}  >
+            <Input type="checkbox" aria-label="Checkbox delete note" onClick={() => onDelete(id)} />
            </InputGroupText>
           </InputGroupAddon>
-           <Input className={s.note} placeholder= {todo}/>
+           <Input className={i.Input} placeholder= {todo}/>
         </InputGroup>
-      </li>
+      {/* </li> */}
        </CSSTransition>
       )}
       

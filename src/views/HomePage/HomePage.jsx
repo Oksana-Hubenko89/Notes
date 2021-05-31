@@ -40,8 +40,11 @@ class HomePage extends Component {
           <PageHeading text="Notes" />
         </CSSTransition>
          <div className={container.container_center}>
-          <TodoForm onSubmitTodo={()=>{this.handleSubmit(message)}} onResetError={()=>{this.resetError()}}/>
-          <h5 className={s.note}>Заметки</h5> 
+          <TodoForm onSubmitTodo={() => { this.handleSubmit(message) }} onResetError={() => { this.resetError() }} />
+          <CSSTransition classNames={StyleFilter} in={this.props.todos.length >=1}
+            timeout={250} unmountOnExit > 
+          <p>Все заметки</p> 
+          </CSSTransition>
           <CSSTransition classNames={StyleFilter} in={this.props.todos.length >1}
             timeout={250} unmountOnExit > 
           <Filter /> 
